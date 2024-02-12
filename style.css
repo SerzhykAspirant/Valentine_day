@@ -5,7 +5,16 @@ body {
     height: 100vh;
     background-color: #fae1dd;
 }
-
+h1 {
+    position: absolute;
+    font-family: "Snell Roundhand", cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 25px;
+    top: 25px;
+    left: 45px;
+    color: #003049;
+}
 .container {
     position: relative;
 }
