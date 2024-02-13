@@ -13,14 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.top = "0";
     };
 
-    envelope.addEventListener("mouseenter", raiseCard);
+    envelope.addEventListener("mouseenter", () => {
+        raiseCard();
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+
     envelope.addEventListener("mouseleave", lowerCard);
-    
+
     envelope.addEventListener("click", () => {
         raiseCard();
         if (audio.paused) {
             audio.play();
         } else {
+            audio.pause();
             audio.currentTime = 0;
         }
     });
