@@ -8,19 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.top = "-90px";
     };
 
-    const lowerCard = () => {
-        card.style.transition = "top 0.5s";
-        card.style.top = "0";
-    };
-
     envelope.addEventListener("mouseenter", () => {
         raiseCard();
         if (audio.paused) {
             audio.play();
         }
     });
-
-    envelope.addEventListener("mouseleave", lowerCard);
 
     envelope.addEventListener("click", () => {
         raiseCard();
@@ -31,6 +24,4 @@ document.addEventListener("DOMContentLoaded", () => {
             audio.currentTime = 0;
         }
     });
-
-    document.addEventListener("click", () => lowerCard(), true);
 });
