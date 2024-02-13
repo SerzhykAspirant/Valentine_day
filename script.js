@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.querySelector(".card");
     const audio = document.getElementById('myAudio');
 
-    const activateCard = () => {
+    const toggleCardAndPlayAudio = () => {
         // Піднімає картку
         card.style.transition = "top 0.5s";
         card.style.top = "-90px";
@@ -12,14 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (audio.paused) {
             audio.play();
         } else {
-            audio.currentTime = 0; // Якщо вам потрібно починати відтворення з початку кожного разу
+            audio.currentTime = 0;
             audio.play();
         }
     };
 
-    envelope.addEventListener("mouseenter", activateCard);
-    envelope.addEventListener("click", (e) => {
+    // Обробник для кліку та сенсорного натискання
+    const handleClickAndTouch = (e) => {
         e.stopPropagation(); // Запобігає розповсюдженню події на батьківські елементи
-        activateCard();
-    });
+        toggleCardAndPlayAudio();
+    };
+
+    envelope.addEventListener("click", handleClickAndTouch);
+    envelope.addEventListener("touchstart", handleClickAndTouch);
+
+    // Додатковий обробник для опускання картки може бути доданий, якщо потрібно
 });
