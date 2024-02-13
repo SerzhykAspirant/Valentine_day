@@ -78,7 +78,7 @@ h1 {
 
 .text {
     position: absolute;
-    font-family: "Snell Roundhand", cursive;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     text-align: center;
     line-height: 25px;

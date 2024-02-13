@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const raiseCard = () => {
         card.style.transition = "top 0.5s";
-        card.style.top = "-90px";
+        card.style.top = "-100px";
     };
 
     envelope.addEventListener("mouseenter", () => {
