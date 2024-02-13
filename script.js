@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     envelope.addEventListener("mouseleave", () => toggleCard(false));
 
     envelope.addEventListener("click", (e) => {
-        e.stopPropagation(); // Запобігає розповсюдженню події на батьківські елементи
+        e.stopPropagation();
 
         if (audio.paused) {
             audio.play();
         } else {
             audio.currentTime = 0;
+            audio.play();
         }
     });
 
