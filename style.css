@@ -82,8 +82,8 @@ h1 {
     font-size: 16px;
     text-align: center;
     line-height: 25px;
-    top: 25px;
-    left: 45px;
+    top: 10px;
+    left: 5px;
     color: #003049;
 }
 
@@ -93,7 +93,7 @@ h1 {
     height: 30px;
     margin: 0 10px;
     position: relative;
-    top: 110px;
+    top: 170px;
     left: 105px;
     transform: rotate(-45deg);
     width: 30px;
@@ -253,4 +253,12 @@ h1 {
     50% {
         transform: scaleX(0.85);
     }
+}
+.container:hover .card {
+    top: -120px; /* Припустимо, що це бажана позиція для підняття */
+}
+
+.card {
+    transition: top 0.5s ease; /* Додає плавність переходу */
+    /* Інші стилі для .card */
 }
