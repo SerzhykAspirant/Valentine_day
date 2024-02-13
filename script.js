@@ -9,22 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.top = "-90px";
 
         // Вмикає музику
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.currentTime = 0;
-            audio.play();
-        }
+        const playAudio = () => {
+            if (audio.paused) {
+                audio.play().catch(e => console.error("Аудіо не відтворюється:", e));
+            }
+        };
+
+        playAudio();
     };
 
-    // Обробник для кліку та сенсорного натискання
     const handleClickAndTouch = (e) => {
-        e.stopPropagation(); // Запобігає розповсюдженню події на батьківські елементи
+        e.stopPropagation();
         toggleCardAndPlayAudio();
     };
 
     envelope.addEventListener("click", handleClickAndTouch);
     envelope.addEventListener("touchstart", handleClickAndTouch);
-
-    // Додатковий обробник для опускання картки може бути доданий, якщо потрібно
 });
