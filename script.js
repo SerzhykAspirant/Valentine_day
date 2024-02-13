@@ -3,16 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.querySelector(".card");
     const audio = document.getElementById('myAudio');
 
-    const toggleCard = (isRaised) => {
+    const raiseCard = () => {
         card.style.transition = "top 0.5s";
-        card.style.top = isRaised ? "-90px" : "0";
+        card.style.top = "-90px";
     };
 
-    envelope.addEventListener("mouseenter", () => toggleCard(true));
-    envelope.addEventListener("mouseleave", () => toggleCard(false));
+    const lowerCard = () => {
+        card.style.transition = "top 0.5s";
+        card.style.top = "0";
+    };
+
+    envelope.addEventListener("mouseenter", raiseCard);
+    envelope.addEventListener("mouseleave", lowerCard);
 
     envelope.addEventListener("click", (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); // Запобігає розповсюдженню події на батьківські елементи
+        raiseCard();
 
         if (audio.paused) {
             audio.play();
@@ -22,5 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.addEventListener("click", () => toggleCard(false), true);
+    // Додатковий обробник для опускання картки тільки якщо клік відбувся поза конвертом
+    document.addEventListener("click", (e) => {
+        if (!envelope.contains(e.target)) {
+            lowerCard();
+        }
+    }, true);
 });
