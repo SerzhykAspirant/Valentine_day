@@ -23,3 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.top = "0";
     }, true);
 });
+document.addEventListener('DOMContentLoaded', (event) => {
+    const envelope = document.querySelector('.envelope');
+    const audio = document.getElementById('myAudio');
+
+    envelope.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.currentTime = 0; // Опціонально: повторно відтворювати з початку
+      }
+    });
+  });
